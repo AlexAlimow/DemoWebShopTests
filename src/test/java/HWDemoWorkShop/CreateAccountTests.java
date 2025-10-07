@@ -1,32 +1,35 @@
 package HWDemoWorkShop;
 
+import HWDemoWorkShop.Utils.User;
 import HWDemoWorkShop.Utils.TestBase;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CreateAccountTests extends TestBase {
+
     @Test
     public void newUserRegistrationPositiveTest() {
-        int i = (int) ((System.currentTimeMillis() / 1000) % 3600);
-        String email = "gorlum007user" + i + "@gmail.com";
+        setUpDriver();
 
-        click(By.cssSelector("a[href='/register']")); //click registration
-        type(By.name("FirstName"), "Alex"); //enter first name
-        type(By.name("LastName"), "Smith"); //enter last name
-        type(By.name("Email"), email); // enter email
-        type(By.name("Password"), "TestTest007!"); // enter password
-        type(By.name("ConfirmPassword"), "TestTest007!"); // enter password
+        String uniqueEmail = getUniqueEmail();
 
-        click(By.name("register-button")); // click on 'Register' button
+        User user = new User()
+                .setFirstName("Alex")
+                .setLastName("Smith")
+                .setEmail(uniqueEmail)
+                .setPassword("TestTest007!");
 
+        openRegistrationPage();
+        fillRegistrationForm(user);
+        submitRegistration();
 
-        Assert.assertTrue(isElementVisible(By.cssSelector("input.register-continue-button")), "Кнопка Continue не отображается");
+        Assert.assertTrue(isElementPresent(By.cssSelector("input.register-continue-button")),
+                "Кнопка Continue не найдена после регистрации");
 
-        click(By.cssSelector("input.register-continue-button")); // Click the 'Continue' button to go to the main page
+        clickContinueButton();
+        Assert.assertTrue(isLoggedIn(user.getEmail()), "Пользователь не вошёл после регистрации");
 
-        Assert.assertTrue(isElementVisible(By.xpath("//a[text()='Log out']")), "Кнопка 'Log out' не отображается");
-        Assert.assertEquals(getText(By.cssSelector("a.account")), email, "Email пользователя не совпадает");
+        tearDownDriver();
     }
-
 }
