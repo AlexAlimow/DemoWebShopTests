@@ -1,4 +1,4 @@
-package Phonebook;
+package com.phonebook.models;
 
 public class User {
 

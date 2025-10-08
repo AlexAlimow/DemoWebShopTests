@@ -1,6 +1,6 @@
-package Phonebook;
+package com.phonebook.data;
 
 public class UserData {
     public static final String email = "gorlum007user@gmail.com";
-    public static final String password = "TestTest!";
+    public static final String password = "TestTest007!";
 }

@@ -1,4 +1,4 @@
-package Phonebook;
+package com.phonebook.data;
 
 public class ContactData {
 
