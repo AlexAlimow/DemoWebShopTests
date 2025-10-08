@@ -33,12 +33,10 @@ public class ItemTests extends TestBase {
         // Проверка по имени
         Assert.assertEquals(productNameInCart, addedProductName, "Добавленный товар не найден в корзине");
 
-
-
-
     }
+
     @AfterMethod
-    public void postcondition(){
+    public void postcondition() {
         //tearDownDriver();
     }
 
