@@ -118,7 +118,7 @@ public class TestBase {
     }
 
     protected String getUniqueEmail() {
-        String uniqueEmail = "gorlum007user" + System.currentTimeMillis() / 1000 + "@gmail.com";
+        String uniqueEmail = "gorlum007user" + System.currentTimeMillis() / 1000%3600 + "@gmail.com";
         return uniqueEmail;
     }
 }

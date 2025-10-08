@@ -15,7 +15,7 @@ public class ItemTests extends TestBase {
 
         // Логин под существующим пользователем
         User user = new User()
-                .setEmail("gorlum007user1759906525@gmail.com")
+                .setEmail("gorlum007user712@gmail.com")
                 .setPassword("TestTest007!");
         login(user);
 
