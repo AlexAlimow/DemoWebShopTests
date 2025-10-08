@@ -30,6 +30,6 @@ public class CreateAccountTests extends TestBase {
         clickContinueButton();
         Assert.assertTrue(isLoggedIn(user.getEmail()), "Пользователь не вошёл после регистрации");
 
-        tearDownDriver();
+        //tearDownDriver();
     }
 }

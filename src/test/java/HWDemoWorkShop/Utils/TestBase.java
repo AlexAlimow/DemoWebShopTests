@@ -76,16 +76,23 @@ public class TestBase {
     }
 
     // ---------- Логин ----------
+    public void openLoginPage() {
+        click(By.cssSelector("a.ico-login"));
+    }
+
     public void login(User user) {
-        click(By.cssSelector("a[href='/login']"));
+        openLoginPage();
         type(By.id("Email"), user.getEmail());
         type(By.id("Password"), user.getPassword());
         click(By.cssSelector("input.login-button"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Log out']")));
     }
 
     public boolean isLogoutVisible() {
         return isElementPresent(By.xpath("//a[text()='Log out']"));
     }
+
+
 
     // ---------- Корзина ----------
     public String addSecondItemToCart() {

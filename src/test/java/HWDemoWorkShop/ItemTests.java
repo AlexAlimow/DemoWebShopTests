@@ -3,28 +3,27 @@ package HWDemoWorkShop;
 import HWDemoWorkShop.Utils.User;
 import HWDemoWorkShop.Utils.TestBase;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ItemTests extends TestBase {
 
-    @Test
-    public void addItemToCartTest() {
+    @BeforeMethod
+    public void precondition() {
         setUpDriver();
 
-        // создаем пользователя и регистрируемся
-        String uniqueEmail = getUniqueEmail();
+        // Логин под существующим пользователем
         User user = new User()
-                .setFirstName("Alex")
-                .setLastName("Smith")
-                .setEmail(uniqueEmail)
+                .setEmail("gorlum007user1759906525@gmail.com")
                 .setPassword("TestTest007!");
+        login(user);
 
-        // Регистрация
-        openRegistrationPage();
-        fillRegistrationForm(user);
-        submitRegistration();
-        clickContinueButton();
-        Assert.assertTrue(isLoggedIn(user.getEmail()), "Регистрация не прошла");
+        Assert.assertTrue(isLogoutVisible(), "Не удалось войти в систему");
+    }
+
+    @Test
+    public void addItemToCartTest() {
 
         // Добавление товара в корзину и получение его имени
         String addedProductName = addSecondItemToCart(); // возвращает название добавленного товара
@@ -36,9 +35,14 @@ public class ItemTests extends TestBase {
         // Проверка по имени
         Assert.assertEquals(productNameInCart, addedProductName, "Добавленный товар не найден в корзине");
 
-        System.out.println("Добавленный товар: " + productNameInCart);
 
+
+
+    }
+    @AfterMethod
+    public void postcondition(){
         //tearDownDriver();
     }
+
 
 }
