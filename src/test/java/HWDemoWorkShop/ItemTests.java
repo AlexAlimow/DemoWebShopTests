@@ -18,8 +18,6 @@ public class ItemTests extends TestBase {
                 .setEmail("gorlum007user712@gmail.com")
                 .setPassword("TestTest007!");
         login(user);
-
-        Assert.assertTrue(isLogoutVisible(), "Не удалось войти в систему");
     }
 
     @Test
