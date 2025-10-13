@@ -31,8 +31,15 @@ public class ContactHelper extends BaseHelper {
         click(By.cssSelector("[href='/add']"));
     }
 
-    public boolean isContactCreatedByText(String text) {
-        List<WebElement> contacts = driver.findElements(By.cssSelector("h2"));
+    public boolean isContactCreatedByName(String text) {
+        return verifyText(text, By.cssSelector("h2"));
+    }
+    public boolean isContactCreatedByPhone(String text) {
+        return verifyText(text,By.cssSelector("h3"));
+    }
+
+    public boolean verifyText(String text, By locator) {
+        List<WebElement> contacts = driver.findElements(locator);
         for (WebElement element : contacts) {
             if (element.getText().contains(text))
                 return true;

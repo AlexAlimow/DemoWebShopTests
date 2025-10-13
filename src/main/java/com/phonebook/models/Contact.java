@@ -58,7 +58,16 @@ public class Contact {
         return email;
     }
 
+
+
     public String getAddress() {
         return address;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Contact{name='%s', phone='%s'}", name, phone);
+    }
 }
+
+

@@ -1,66 +1,17 @@
-# =========================================
-#   IntelliJ IDEA / JetBrains
-# =========================================
-.idea/
-*.iml
+.gradle
+/gradle/
+
+*.idea
 *.iws
+*.iml
 *.ipr
-
-#
-# =========================================
-#   Build / Output folders
-# =========================================
 out/
-target/
-build/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-# =========================================
-#   Logs & Reports
-# =========================================
+settings.gradle
+gradlew.bat
+\gradlew
+
 *.log
-*.tmp
-*.swp
-*.bak
-*.class
-*.jar
-*.war
-*.ear
-
-# =========================================
-#   OS-specific files
-# =========================================
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# =========================================
-#   Gradle / Maven
-# =========================================
-.gradle/
-!gradle-wrapper.jar
-**/mvnw
-**/mvnw.cmd
-**/gradlew
-**/gradlew.bat
-
-# =========================================
-#   Selenium / WebDrivers / Temp
-# =========================================
-chromedriver.log
-geckodriver.log
-webdriver.log
-
-# =========================================
-#   IntelliJ plugin / Test results
-# =========================================
-*.html
-test-output/
-reports/
-allure-results/
-allure-report/
-
-# =========================================
-#   Environment files
-# =========================================
-.env
-*.env
+*.png
