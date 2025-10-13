@@ -19,3 +19,4 @@ public class HomePageHelper extends BaseHelper {
         click(By.cssSelector("[href='/home']"));
     }
 }
+

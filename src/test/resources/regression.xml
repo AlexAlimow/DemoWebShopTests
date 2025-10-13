@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Regression" verbose="1">
+    <test name="Positive">
+        <classes>
+            <class name="Phonebook.tests.HomePageTests"/>
+            <class name="Phonebook.tests.LoginTests">
+                <parameter name="email" value="gorlum007user@gmail.com"></parameter>
+                <parameter name="password" value="TestTest007!"></parameter>
+                <methods>
+                    <exclude name=".*Negative.*"/>
+                </methods>
+            </class>
+            <class name="Phonebook.tests.AddContactTests"/>
+            <class name="Phonebook.tests.DeleteContactTests"/>
+        </classes>
+    </test>
+</suite>

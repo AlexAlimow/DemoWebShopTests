@@ -10,12 +10,11 @@ import org.testng.annotations.Test;
 
 public class AddContactTests extends TestBase {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void precondition() {
         if (!app.getUser().isLoginLinkPresent()) {
             app.getUser().clickOnSignOutButton();
         }
-
         app.getUser().clickOnLoginLink();
         app.getUser().fillLoginRegisterForm(new User()
                 .setEmail("gorlum007user@gmail.com")
@@ -23,7 +22,7 @@ public class AddContactTests extends TestBase {
         app.getUser().clickOnLoginButton();
     }
 
-    @Test
+    @Test(groups = "smoky")
     public void addContactPositiveTest() {
         app.getContact().clickOnAddLink();
         app.getContact().fillContactForm(
